@@ -107,5 +107,18 @@ namespace ProductrReviewManagement
             }
 
         }
+        //method to getll all liked reviews
+        public void GetAllLikedReviews()
+        {
+            var stringTable = from product in table.AsEnumerable()
+                              where (bool)product["IsLike"]==true
+                              select product;
+
+            Console.WriteLine("\n");
+            foreach (var list in stringTable)
+            {
+                Console.WriteLine("ProductID: " + list.Field<string>("ProductID") + ", UserID: " + list.Field<string>("UserID") + ", Ratings: " + list.Field<string>("Ratings") + " , Review: " + list.Field<string>("Review") + " , IsLike: " + list.Field<string>("IsLike"));
+            }
+        }
     }
 }

@@ -52,6 +52,8 @@ namespace ProductrReviewManagement
             mg.RetrieveProductIdAndReview(listProductReview);
             mg.SkipTop5records(listProductReview);
             mg.CreateDataTable();
+            Console.WriteLine("----------------------------------------------------------------------");
+            mg.GetAllLikedReviews();
             Console.ReadLine();
         }
     
