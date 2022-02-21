@@ -55,6 +55,7 @@ namespace ProductrReviewManagement
             mg.GetAllLikedReviews();
             mg.AverageRatingOfEachProductId(listProductReview);
             mg.RecordWithReviewGood(listProductReview);
+            mg.RetrieveRecordsWithUserId10(listProductReview);
             Console.ReadLine();
         }
     
