@@ -50,6 +50,7 @@ namespace ProductrReviewManagement
             mg.RecordWithCondition(listProductReview);
             mg.RetrieveCountOfReview(listProductReview);
             mg.RetrieveProductIdAndReview(listProductReview);
+            mg.SkipTop5records(listProductReview);
             Console.ReadLine();
         }
     
