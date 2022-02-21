@@ -35,7 +35,7 @@ namespace ProductrReviewManagement
                 new ProductReview(){ProductID=18,UserID=33,Rating=3,Review="Good",isLike=true},
                 new ProductReview(){ProductID=19,UserID=35,Rating=2,Review="Okay",isLike=true},
                 new ProductReview(){ProductID=20,UserID=37,Rating=1,Review="Poor",isLike=true},
-                new ProductReview(){ProductID=21,UserID=39,Rating=5,Review="Super",isLike=true},
+                new ProductReview(){ProductID=21,UserID=39,Rating=5,Review="Super",isLike=true},    
                 new ProductReview(){ProductID=22,UserID=41,Rating=4,Review="Great",isLike=true},
                 new ProductReview(){ProductID=23,UserID=43,Rating=3,Review="Good",isLike=true},
                 new ProductReview(){ProductID=24,UserID=45,Rating=2,Review="Okay",isLike=true},
@@ -47,6 +47,7 @@ namespace ProductrReviewManagement
             }
             Management mg = new Management();
             mg.TopRecords(listProductReview);
+            mg.RecordWithCondition(listProductReview);
             Console.ReadLine();
         }
     

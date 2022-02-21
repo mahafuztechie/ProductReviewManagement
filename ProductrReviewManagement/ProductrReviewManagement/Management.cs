@@ -14,6 +14,7 @@ namespace ProductrReviewManagement
         /// UC2
         /// </summary>
         /// <param name="listProductReview"></param>
+        /// // retrive top 3 records
         public void TopRecords(List<ProductReview> listProductReview)
         {
             var recordedData = (from productReviews in listProductReview
@@ -24,6 +25,18 @@ namespace ProductrReviewManagement
                 Console.WriteLine("ProductID: " + list.ProductID + " UserID: " + list.UserID + " Rating: " + list.Rating + " Review: " + list.Review + " isLike: " + list.isLike);
             }
         }
-
+        //retireve by rating & bproductID
+        public void RecordWithCondition(List<ProductReview> listProductReview)
+        {
+            var data = (from productReviews in listProductReview
+                        where (productReviews.Rating > 3 && productReviews.ProductID == 1) || (productReviews.Rating > 3 && productReviews.ProductID == 4)
+                                || (productReviews.Rating > 3 && productReviews.ProductID == 9)
+                        select productReviews).ToList();
+            Console.WriteLine("\n");
+            foreach (var list in data)
+            {
+                Console.WriteLine("ProductID: " + list.ProductID + " UserID: " + list.UserID + " Rating: " + list.Rating + " Review: " + list.Review + " isLike: " + list.isLike);
+            }
+        }
     }
 }
