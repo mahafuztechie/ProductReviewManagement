@@ -83,7 +83,7 @@ namespace ProductrReviewManagement
             table.Columns.Add("UserID");
             table.Columns.Add("Ratings");
             table.Columns.Add("Review");
-            table.Columns.Add("IsLike");
+            table.Columns.Add("IsLike", typeof(bool));
 
             table.Rows.Add(1, 1, 8, "Good", true);
             table.Rows.Add(2, 2, 7, "Good", true);
@@ -103,21 +103,22 @@ namespace ProductrReviewManagement
 
             foreach (var data in stringTable)
             {
-                Console.WriteLine("ProductID: " + data.Field<string>("ProductID") + ", UserID: " + data.Field<string>("UserID") + ", Ratings: " + data.Field<string>("Ratings") + " , Review: " + data.Field<string>("Review") + " , IsLike: " + data.Field<string>("IsLike"));
+                Console.WriteLine("ProductID: " + data.Field<string>("ProductID") + ", UserID: " + data.Field<string>("UserID") + ", Ratings: " + data.Field<string>("Ratings") + " , Review: " + data.Field<string>("Review") + " , IsLike: " + data.Field<bool>("IsLike"));
             }
 
         }
         //method to getll all liked reviews
         public void GetAllLikedReviews()
         {
-            var stringTable = from product in table.AsEnumerable()
-                              where (bool)product["IsLike"]==true
-                              select product;
+            var stringTable = (from product in table.AsEnumerable()
+                              where (product.Field<bool>("IsLike") == true)
+                              select product).ToList();
 
+            
             Console.WriteLine("\n");
             foreach (var list in stringTable)
             {
-                Console.WriteLine("ProductID: " + list.Field<string>("ProductID") + ", UserID: " + list.Field<string>("UserID") + ", Ratings: " + list.Field<string>("Ratings") + " , Review: " + list.Field<string>("Review") + " , IsLike: " + list.Field<string>("IsLike"));
+                Console.WriteLine("ProductID: " + list.Field<string>("ProductID") + ", UserID: " + list.Field<string>("UserID") + ", Ratings: " + list.Field<string>("Ratings") + " , Review: " + list.Field<string>("Review") + " , IsLike: " + list.Field<bool>("IsLike"));
             }
         }
 
